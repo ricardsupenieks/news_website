@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>search</title>
+</head>
+<body>
+    <form method="get">
+        <input type="text" name="search" id="search" placeholder="Search for an article" required>
+    </form>
+    <h1>Search results for: "{{ searchTerm }}"</h1>
+    {% for article in articles %}
+        <h5>{{ article.getTitle }}</h5>
+        <h5>{{ article.getDescription }}</h5>
+        <h5>{{ article.getAuthor }}</h5>
+        <h5><a href={{ article.getUrl }}> Source </a></h5>
+        <h5>____________________</h5>
+    {% endfor %}
+</body>
+</html>

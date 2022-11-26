@@ -42,6 +42,6 @@ class Article
 
     public function getUrl(): string
     {
-        return $this->url;
+        return substr($this->url, 0, -1);
     }
 }
