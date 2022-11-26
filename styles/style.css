@@ -1,0 +1,43 @@
+body {
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+.top {
+    background-color: rgba(0, 0, 0, 0.31);
+    border-style: solid;
+    margin-bottom: 50px;
+}
+
+.news {
+    display: inline-block;
+    color: orange;
+    padding-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.search_box {
+    display: inline-block;
+    padding-left: 50px;
+
+}
+
+#search {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-style: groove;
+    border-color: rgba(122, 122, 122, 0.29);
+    font-style: italic;
+}
+
+h1 {
+    color: white;
+}
+
+h5 {
+    color:white;
+}
+
+a {
+    color: orange;
+}

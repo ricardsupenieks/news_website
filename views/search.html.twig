@@ -9,14 +9,21 @@
     <title>search</title>
 </head>
 <body>
-    <form method="get">
-        <input type="text" name="search" id="search" placeholder="Search for an article" required>
-    </form>
+    <div class="top">
+        <h2 class="news">NEWS</h2>
+        <form method="get" class="search_box">
+            <input type="text" name="search" id="search" placeholder="Search for an article" required>
+        </form>
+    </div>
     <h1>Search results for: "{{ searchTerm }}"</h1>
     {% for article in articles %}
         <h5>{{ article.getTitle }}</h5>
         <h5>{{ article.getDescription }}</h5>
-        <h5>{{ article.getAuthor }}</h5>
+        {% if article.getAuthor == null %}
+            <h5>Author : No author cited</h5>
+        {% else %}
+            <h5>Author: {{ article.getAuthor }}</h5>
+        {% endif %}
         <h5><a href={{ article.getUrl }}> Source </a></h5>
         <h5>____________________</h5>
     {% endfor %}
