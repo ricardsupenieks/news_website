@@ -18,7 +18,7 @@ class ArticleController extends BaseController {
 
         $articles = [];
         foreach ($articlesApiResponse->articles as $article) {
-            $articles[] = new Article($article->url, $article->title, $article->author, $article->description, $article->urlToImage);
+            $articles[] = new Article($article->url, $article->title, $article->urlToImage);
         }
 
        return $this->render('search.html.twig', ['searchTerm' => $searchTerm, 'articles' => $articles]);

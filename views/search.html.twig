@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>search</title>
+    <link rel="stylesheet" href="/styles/styleSearch.css">
+    <title>Search</title>
 </head>
 <body>
     <div class="top">
@@ -18,17 +18,14 @@
 
     <div class="search_results">
         <h1>Search results for: "{{ searchTerm }}"</h1>
-            {% for article in articles %}
-                <h3>{{ article.getTitle }}</h3>
-                <h4>{{ article.getDescription }}</h4>
-                {% if article.getAuthor == null %}
-                    <h5>Author : No author cited</h5>
-                {% else %}
-                    <h5>Author: {{ article.getAuthor }}</h5>
-                {% endif %}
-                <h5><a href={{ article.getUrl }}> Source </a></h5>
-                <h5>____________________</h5>
-            {% endfor %}
+        <div class="flex-container">
+        {% for article in articles %}
+                <div class="article">
+                    <a href="{{ article.getUrl }}"><img class="image" src="{{ article.getImageUrl }}" alt="{{ keyword }}"></a>
+                    <div class="article_title"><b>{{ article.getTitle }}</b></div>
+                </div>
+        {% endfor %}
+        </div>
     </div>
 </body>
 </html>

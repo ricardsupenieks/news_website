@@ -1,0 +1,37 @@
+body {
+    background-color: rgba(0, 0, 0, 0.91);
+    font-family: Arial, monospace;
+}
+
+.news {
+    display: inline-block;
+    color: orange;
+    font-family: Arial, monospace;
+    font-style: italic;
+    font-size: 50px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    width: 1000px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: #2f2e2e solid 4px;
+    color:white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+::placeholder {
+    font-style: italic;
+    color:white;
+    font-size: 30px;
+    opacity: 0.6;
+    text-align: center;
+}
