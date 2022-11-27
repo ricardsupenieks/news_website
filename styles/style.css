@@ -1,34 +1,47 @@
 body {
     background-color: rgba(0, 0, 0, 0.91);
-    font-family: Arial;
+    font-family: Arial, monospace;
+    margin:0;
 }
 
 .top {
     background-color: rgba(0, 0, 0, 0.31);
-    border-style: solid;
-    min-width: 100%;
+    border-bottom: solid;
 }
 
 .news {
     display: inline-block;
     color: orange;
-    padding-left: 20px;
-    font-family: Arial;
+    margin-left: 20px;
+    font-family: Arial, monospace;
     font-style: italic;
 }
 
 .search_box {
     display: inline-block;
     padding-left: 50px;
-
+    margin: auto;
 }
 
-#search {
+input {
     width: 600px;
-    background-color: rgba(0, 0, 0, 0.15);
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.31);
     border-style: groove;
-    border-color: rgba(122, 122, 122, 0.29);
+    border-color: rgba(0, 0, 0, 0.47);
+    color:white;
+    margin: auto;
+}
+
+
+::placeholder {
     font-style: italic;
+    color:white;
+}
+
+
+.search_results {
+    margin-left: 8px;
 }
 
 h1 {

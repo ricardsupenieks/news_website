@@ -16,17 +16,19 @@
         </form>
     </div>
 
-    <h1>Search results for: "{{ searchTerm }}"</h1>
-    {% for article in articles %}
-        <h3>{{ article.getTitle }}</h3>
-        <h4>{{ article.getDescription }}</h4>
-        {% if article.getAuthor == null %}
-            <h5>Author : No author cited</h5>
-        {% else %}
-            <h5>Author: {{ article.getAuthor }}</h5>
-        {% endif %}
-        <h5><a href={{ article.getUrl }}> Source </a></h5>
-        <h5>____________________</h5>
-    {% endfor %}
+    <div class="search_results">
+        <h1>Search results for: "{{ searchTerm }}"</h1>
+            {% for article in articles %}
+                <h3>{{ article.getTitle }}</h3>
+                <h4>{{ article.getDescription }}</h4>
+                {% if article.getAuthor == null %}
+                    <h5>Author : No author cited</h5>
+                {% else %}
+                    <h5>Author: {{ article.getAuthor }}</h5>
+                {% endif %}
+                <h5><a href={{ article.getUrl }}> Source </a></h5>
+                <h5>____________________</h5>
+            {% endfor %}
+    </div>
 </body>
 </html>
