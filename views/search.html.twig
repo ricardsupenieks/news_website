@@ -21,8 +21,8 @@
         <div class="flex-container">
         {% for article in articles %}
                 <div class="article">
-                    <a href="{{ article.getUrl }}"><img class="image" src="{{ article.getImageUrl }}" alt="{{ keyword }}"></a>
-                    <div class="article_title"><b>{{ article.getTitle }}</b></div>
+                    <a href="{{ article.url }}" target="_blank"><img class="image" src="{{ article.imageUrl }}" alt="{{ keyword }}"></a>
+                    <div class="article_title"><b>{{ article.title }}</b></div>
                 </div>
         {% endfor %}
         </div>

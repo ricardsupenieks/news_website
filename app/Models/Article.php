@@ -5,11 +5,11 @@ namespace App\Models;
 class Article
 {
     private string $url;
-    private string $title;
+    private ?string $title;
     private ?string $imageUrl;
 
 
-    public function __construct(string $url, string $title, ?string $imageUrl = null){
+    public function __construct(string $url, ?string $title = null, ?string $imageUrl = null){
 
         $this->url = $url;
         $this->title = $title;
@@ -21,7 +21,7 @@ class Article
         return $this->imageUrl;
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }

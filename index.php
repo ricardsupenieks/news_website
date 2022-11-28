@@ -3,6 +3,8 @@ require_once "vendor/autoload.php";
 
 use App\Controllers\ArticleController;
 use Dotenv\Dotenv;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -10,6 +12,9 @@ $dotenv->load();
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', [ArticleController::class, 'index']);
 });
+
+$loader = new FilesystemLoader('views');
+$twig = new Environment($loader);
 
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
@@ -37,7 +42,11 @@ switch ($routeInfo[0]) {
 
         [$controller, $method] = $handler;
 //        var_dump($handler);die;
-        $response = (new $controller)->{$method}();
-        echo $response;
+        $response = (new $controller)->{$method}($vars);
+
+        if ($response instanceof \App\Template){
+            echo $twig->render($response->getPath(), $response->getParams());
+        }
+
         break;
 }
