@@ -18,7 +18,12 @@ class Article
 
     public function getImageUrl(): ?string
     {
-        return $this->imageUrl;
+        $image = $this->imageUrl;
+
+        if ($image === null) {
+            return 'public/images/missing-image.jpg';
+        }
+        return $image;
     }
 
     public function getTitle(): ?string

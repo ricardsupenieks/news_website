@@ -6,21 +6,18 @@ use App\Models\Article;
 use App\Models\Collections\ArticlesCollection;
 use jcobhams\NewsApi\NewsApi;
 
-class FetchArticlesService {
+class FetchTopHeadlinesService {
 
-    public function execute(string $searchTerm): ArticlesCollection {
+    public function execute(): ArticlesCollection {
         $apiClient = new NewsApi($_ENV['NEWS_API_KEY']);
 
-        $articlesApiResponse = $apiClient->getEverything($searchTerm);
-
+        $articlesApiResponse = $apiClient->getTopHeadLines(null, null, 'gb');
 
         $articles = new ArticlesCollection();
-
         foreach ($articlesApiResponse->articles as $article) {
             $articles->add(new Article($article->url, $article->title, $article->urlToImage));
         }
 
         return $articles;
     }
-
 }

@@ -9,9 +9,20 @@
     <title>Main</title>
 </head>
 <body>
-    <h2 class="news">NEWS</h2>
-    <form method="get" class="search_box">
-        <input type="text" name="search" id="search" placeholder="Search for an article" required>
-    </form>
+    {% include 'navigation.html.twig' %}
+
+    <div class="top-stories">
+        <h1>Top stories today</h1>
+    </div>
+        <div class="top-headlines">
+            <div class="flex-container">
+                {% for article in articles %}
+                    <a href="{{ article.url }}" target="_blank"><div class="article">
+                        <img class="image" src="{{ article.imageUrl }}" alt="{{ keyword }}">
+                        <div class="article_title"><b>{{ article.title }}</b></div>
+                    </div></a>
+                {% endfor %}
+            </div>
+        </div>>
 </body>
 </html>
