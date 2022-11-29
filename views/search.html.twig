@@ -10,9 +10,7 @@
 </head>
 <body>
     {% include 'navigation.html.twig' %}
-
-    <div class="search_results">
-        <h1>Search results for: "{{ searchTerm }}"</h1>
+        <h1>Top stories for: "{{ searchTerm }}"</h1>
         <div class="flex-container">
             {% for article in articles %}
                 <a href="{{ article.url }}" target="_blank"><div class="article">
@@ -21,6 +19,5 @@
                     </div></a>
             {% endfor %}
         </div>
-    </div>
 </body>
 </html>
