@@ -1,19 +1,31 @@
 <?php
-require_once "vendor/autoload.php";
+
+require_once '../vendor/autoload.php';
 
 use App\Controllers\ArticleController;
+use App\Controllers\LoginController;
+use App\Controllers\RegisterController;
 use Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable("/home/ricards/PhpstormProjects/news-website");
 $dotenv->load();
+
+session_start();
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', [ArticleController::class, 'index']);
+
+    $r->addRoute('GET', '/register', [RegisterController::class, 'showForm']);
+    $r->addRoute('POST', '/register', [RegisterController::class, 'store']);
+
+    $r->addRoute('GET', '/login', [LoginController::class, 'showForm']);
+    $r->addRoute('POST', '/login', [LoginController::class, 'execute']);
+
 });
 
-$loader = new FilesystemLoader('views');
+$loader = new FilesystemLoader('../views');
 $twig = new Environment($loader);
 
 // Fetch method and URI from somewhere
@@ -46,6 +58,10 @@ switch ($routeInfo[0]) {
 
         if ($response instanceof \App\Template){
             echo $twig->render($response->getPath(), $response->getParams());
+        }
+
+        if ($response instanceof \App\Redirect) {
+            header('Location: ' . $response->getUrl());
         }
 
         break;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services;
+namespace App\services\Article;
 
 use App\Models\Article;
 use App\Models\Collections\ArticlesCollection;
@@ -11,7 +11,7 @@ class FetchTopHeadlinesService {
     public function execute(): ArticlesCollection {
         $apiClient = new NewsApi($_ENV['NEWS_API_KEY']);
 
-        $articlesApiResponse = $apiClient->getTopHeadLines(null, null, 'gb');
+        $articlesApiResponse = $apiClient->getTopHeadLines(null, null, 'lv');
 
         $articles = new ArticlesCollection();
         foreach ($articlesApiResponse->articles as $article) {

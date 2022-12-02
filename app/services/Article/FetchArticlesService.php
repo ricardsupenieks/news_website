@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services;
+namespace App\services\Article;
 
 use App\Models\Article;
 use App\Models\Collections\ArticlesCollection;

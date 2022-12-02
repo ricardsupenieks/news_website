@@ -5,19 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/styleSearch.css">
-    <title>Search</title>
+    <link rel="stylesheet" href="styles/styleMain.css">
+    <title>Main</title>
 </head>
 <body>
-    {% include 'navigation.html.twig' %}
-        <h1>Top stories for: "{{ searchTerm }}"</h1>
-        <div class="flex-container">
-            {% for article in articles %}
-                <a href="{{ article.url }}" target="_blank"><div class="article">
+    {% include 'navigation.twig' %}
+
+    <div class="top-stories">
+        <h1>Top stories today</h1>
+    </div>
+        <div class="top-headlines">
+            <div class="flex-container">
+                {% for article in articles %}
+                    <a href="{{ article.url }}" target="_blank"><div class="article">
                         <img class="image" src="{{ article.imageUrl }}" alt="{{ keyword }}">
                         <div class="article_title"><b>{{ article.title }}</b></div>
                     </div></a>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        </div>>
 </body>
 </html>

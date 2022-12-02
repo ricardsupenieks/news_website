@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\services\FetchArticlesService;
-use App\services\FetchTopHeadlinesService;
+use App\services\Article\FetchArticlesService;
+use App\services\Article\FetchTopHeadlinesService;
 use App\Template;
 
 class ArticleController  {
@@ -14,12 +14,12 @@ class ArticleController  {
 
         if ($searchTerm === null) {
             $topHeadlines = (new FetchTopHeadlinesService())->execute();
-            return new Template('main.html.twig', ['articles' => $topHeadlines->get()]);
+            return new Template('main.twig', ['articles' => $topHeadlines->get(), 'user' => $_SESSION['user']]);
         }
 
         $articles = (new FetchArticlesService())->execute($searchTerm);
 
-        return new Template('search.html.twig', ['searchTerm' => $searchTerm, 'articles' => $articles->get()]);
+        return new Template('search.twig', ['searchTerm' => $searchTerm, 'articles' => $articles->get()]);
     }
 
 }

@@ -30,13 +30,24 @@ input {
     border-style: solid;
     border-color: #2f2e2e;
     color: rgba(255, 255, 255, 0.78);
-
 }
 
+.login {
+    display: inline-block;
+    color: orange;
+}
 
+.register {
+    display: inline-block;
+    color: orange;
+}
 ::placeholder {
     font-style: italic;
     color:white;
     font-size: 14px;
     opacity: 0.6;
+}
+
+a {
+    text-decoration: none;
 }

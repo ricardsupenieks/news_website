@@ -1,0 +1,54 @@
+body{
+}
+
+.login_info {
+    margin-top: 200px;
+    margin-left: 300px;
+    display: grid;
+}
+
+#name{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 60px;
+    width: 500px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: rgba(44, 44, 44, 0);
+    color: orange;
+}
+
+#email{
+    margin-bottom: 5px;
+    height: 60px;
+    width: 500px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: rgba(44, 44, 44, 0);
+    color: orange;
+
+}
+
+#password{
+    margin-bottom: 5px;
+    height: 60px;
+    width: 500px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: rgba(44, 44, 44, 0)
+}
+
+#password_repeat{
+    height: 60px;
+    width: 500px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: rgba(44, 44, 44, 0);
+}
+
+
+
