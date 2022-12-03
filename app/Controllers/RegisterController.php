@@ -15,6 +15,10 @@ class RegisterController
     }
 
     public function store(){
+        if ($_POST['password'] != $_POST['password_repeat']) {
+            return new Template('register.twig', ['passwordsMatch' => false]);
+        }
+
         $registerService = new RegisterService();
 
         $registerService->execute(
