@@ -19,6 +19,14 @@ class RegisterService {
         $this->connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams);
     }
 
+    public function checkEmail($email) {
+        $emailDB = $this->connection->fetchAllKeyValue('SELECT id, email FROM `news-api`.users');
+        if (in_array($email, $emailDB)) {
+            return 'email taken';
+        }
+        return null;
+    }
+
     public function execute(RegisterServiceRequest $request) {
         $this->connection->insert('users', [
             'name' => $request->getName(),
