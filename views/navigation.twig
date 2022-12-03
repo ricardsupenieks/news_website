@@ -14,9 +14,13 @@
         <form method="get" class="search_box">
             <input type="text" name="search" id="search" placeholder="Search" required>
         </form>
-        <div class="register"><a href="/register">Register </a></div>
-        <div class="login"><a href="/login">Login</a></div>
-{#        <div class="user"> {{  }}</div>#}
+        {% if userID is same as (null) %}
+            <div class="register"><a href="/register">Register</a></div>
+            <div class="login"><a href="/login">Login</a></div>
+        {% else %}
+            <div class="user"> Hello, {{ user }}</div>
+            <a href="/logout">Log out</a>
+        {% endif %}
     </div>
 </body>
 </html>

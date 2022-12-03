@@ -4,7 +4,11 @@ require_once '../vendor/autoload.php';
 
 use App\Controllers\ArticleController;
 use App\Controllers\LoginController;
+use App\Controllers\LogoutController;
 use App\Controllers\RegisterController;
+use App\Models\User;
+use App\Redirect;
+use App\Template;
 use Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -22,6 +26,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
     $r->addRoute('GET', '/login', [LoginController::class, 'showForm']);
     $r->addRoute('POST', '/login', [LoginController::class, 'execute']);
+
+    $r->addRoute('GET', '/logout', [LogoutController::class, 'logOut']);
 
 });
 
@@ -53,14 +59,22 @@ switch ($routeInfo[0]) {
         // ... call $handler with $vars
 
         [$controller, $method] = $handler;
-//        var_dump($handler);die;
         $response = (new $controller)->{$method}($vars);
 
-        if ($response instanceof \App\Template){
+        $userID = $_SESSION['user'];
+        $twig->addGlobal('userID', $userID);
+
+        if ($userID !== null) {
+            $user = new User($userID);
+
+            $twig->addGlobal('user', $user->getName());
+        }
+
+        if ($response instanceof Template){
             echo $twig->render($response->getPath(), $response->getParams());
         }
 
-        if ($response instanceof \App\Redirect) {
+        if ($response instanceof Redirect) {
             header('Location: ' . $response->getUrl());
         }
 

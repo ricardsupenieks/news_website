@@ -2,26 +2,20 @@
 
 namespace App\services\Register;
 
+use App\services\Database;
 use Doctrine\DBAL\Connection;
 
 class RegisterService {
     private Connection $connection;
 
     public function __construct() {
-        $connectionParams = [
-            'dbname' => 'news-api',
-            'user' => 'root',
-            'password' => $_ENV['MYSQL_PASSWORD'],
-            'host' => $_ENV['MYSQL_HOST'],
-            'driver' => 'pdo_mysql',
-        ];
-
-        $this->connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams);
+        $db = new Database();
+        $this->connection = $db->connect();
     }
 
     public function checkEmail($email) {
-        $emailDB = $this->connection->fetchAllKeyValue('SELECT id, email FROM `news-api`.users');
-        if (in_array($email, $emailDB)) {
+        $emailInDB = $this->connection->fetchAllKeyValue('SELECT id, email FROM `news-api`.users');
+        if (in_array($email, $emailInDB)) {
             return 'email taken';
         }
         return null;

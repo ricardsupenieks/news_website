@@ -14,7 +14,7 @@ class ArticleController  {
 
         if ($searchTerm === null) {
             $topHeadlines = (new FetchTopHeadlinesService())->execute();
-            return new Template('main.twig', ['articles' => $topHeadlines->get(), 'user' => $_SESSION['user']]);
+            return new Template('main.twig', ['articles' => $topHeadlines->get()]);
         }
 
         $articles = (new FetchArticlesService())->execute($searchTerm);
