@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\services\Article\FetchArticlesService;
-use App\services\Article\FetchTopHeadlinesService;
+use App\Services\Article\FetchArticlesService;
+use App\Services\Article\FetchTopHeadlinesService;
 use App\Template;
 
 class ArticleController  {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services\Register;
+namespace App\Services\Register;
 
 use App\Database;
 use Doctrine\DBAL\Connection;

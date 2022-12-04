@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Redirect;
-use App\services\Login\LoginService;
-use App\services\Login\LoginServiceRequest;
+use App\Services\Login\LoginService;
+use App\Services\Login\LoginServiceRequest;
 use App\Template;
 
 class LoginController {

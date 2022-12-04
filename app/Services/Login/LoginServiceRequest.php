@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services\Login;
+namespace App\Services\Login;
 
 class LoginServiceRequest
 {

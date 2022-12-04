@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services\Register;
+namespace App\Services\Register;
 
 class RegisterServiceRequest
 {
