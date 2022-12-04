@@ -16,13 +16,13 @@ class LoginService {
     public function execute(LoginServiceRequest $request) {
         $resultSet = $this->connection->executeQuery(
             'SELECT id FROM `news-api`.users WHERE email=?', [
-                $request->getEmail()]);
+            $request->getEmail()]);
 
         $id = $resultSet->fetchAssociative();
 
         $resultSet = $this->connection->executeQuery(
             'SELECT password FROM `news-api`.users WHERE id=?', [
-                $id["id"]]);
+            $id["id"]]);
         $hash = $resultSet->fetchAllAssociative();
 
         if (password_verify($request->getPassword(), $hash[0]["password"])) {
