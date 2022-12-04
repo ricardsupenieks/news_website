@@ -2,18 +2,15 @@
 
 namespace App\services\Login;
 
-class LoginService
-{
-    public function __construct() {
-        $connectionParams = [
-            'dbname' => 'news-api',
-            'user' => 'root',
-            'password' => $_ENV['MYSQL_PASSWORD'],
-            'host' => $_ENV['MYSQL_HOST'],
-            'driver' => 'pdo_mysql',
-        ];
+use App\Database;
+use Doctrine\DBAL\Connection;
 
-        $this->connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams);
+class LoginService {
+    private Connection $connection;
+
+    public function __construct() {
+        $db = new Database();
+        $this->connection = $db->connect();
     }
 
     public function execute(LoginServiceRequest $request) {

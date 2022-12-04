@@ -7,17 +7,15 @@ use App\services\Login\LoginService;
 use App\services\Login\LoginServiceRequest;
 use App\Template;
 
-class LoginController
-{
-    private int $user;
+class LoginController {
 
     public function showForm(): Template{
         return new Template('login.twig');
     }
 
     public function execute() {
-        $registerService = new LoginService();
-        $user = $registerService->execute(
+        $loginService = new LoginService();
+        $user = $loginService->execute(
             new LoginServiceRequest(
                 $_POST['email'],
                 $_POST['password'],

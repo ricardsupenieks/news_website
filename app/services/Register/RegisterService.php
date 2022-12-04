@@ -2,7 +2,7 @@
 
 namespace App\services\Register;
 
-use App\services\Database;
+use App\Database;
 use Doctrine\DBAL\Connection;
 
 class RegisterService {

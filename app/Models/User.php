@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\services\Database;
+use App\Database;
 
 class User {
     private string $name;
