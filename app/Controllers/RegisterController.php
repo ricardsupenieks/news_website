@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Redirect;
-use App\services\Register\RegisterService;
-use App\services\Register\RegisterServiceRequest;
+use App\Services\Register\RegisterService;
+use App\Services\Register\RegisterServiceRequest;
 use App\Template;
 
 class RegisterController
@@ -29,7 +29,7 @@ class RegisterController
             new RegisterServiceRequest(
                 $_POST['name'],
                 $_POST['email'],
-                $_POST['password'],
+                password_hash($_POST['password'], PASSWORD_DEFAULT),
             )
         );
 
