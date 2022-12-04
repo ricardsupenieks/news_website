@@ -32,22 +32,23 @@ input {
     color: rgba(255, 255, 255, 0.78);
 }
 
-.login {
-    display: inline-block;
+.login\/register {
     color: orange;
-}
-
-.register {
-    display: inline-block;
-    color: orange;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
 }
 
 .user {
     color: orange;
+    display: inline-block;
+    margin-left: 30px;
 }
 
 .logout {
-    color: orange;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
 }
 
 ::placeholder {
@@ -59,4 +60,9 @@ input {
 
 a {
     text-decoration: none;
+    color: orange;
+}
+
+a:hover {
+    color: white;
 }

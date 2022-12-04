@@ -1,10 +1,10 @@
 body{
+    font-family: Arial, monospace;
 }
 
 .login_info {
     margin-top: 200px;
     margin-left: 300px;
-    display: grid;
 }
 
 #name{
@@ -50,5 +50,18 @@ body{
     background-color: rgba(44, 44, 44, 0);
 }
 
+#submit {
+    width: 125px;
+    height: 30px;
+}
 
+form {
+    display: flex;
+    flex-direction: column;
+}
 
+h1 {
+    background-color: orange;
+    margin-top: 0;
+    padding: 5px 5px 5px 20px;
+}
