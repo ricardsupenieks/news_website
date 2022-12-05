@@ -9,17 +9,17 @@
     <title>Login</title>
 </head>
 <body>
-    {% include 'navigation.twig' %}
-    <h1>Login</h1>
-    <div class="login_info">
-        <form action="/login" method="post">
-            <input type="text" name="email" id="email" placeholder="E-mail" required>
+{% include 'navigation.twig' %}
+<h1>Login</h1>
+<div class="login_info">
+    <form action="/login" method="post">
+        <input type="text" name="email" id="email" placeholder="E-mail" required>
 
-            <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
 
-            <input type="submit" id="submit" value="Submit">
-        </form>
-        <div class="incorrect">{% if credentials is same as(false) %} Incorrect credentials {% endif %}</div>
-    </div>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+    <div class="incorrect">{% if credentials is same as(false) %} Incorrect credentials {% endif %}</div>
+</div>
 </body>
 </html>

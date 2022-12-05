@@ -7,13 +7,15 @@ use App\Services\Login\LoginService;
 use App\Services\Login\LoginServiceRequest;
 use App\Template;
 
-class LoginController {
-
-    public function showForm(): Template{
+class LoginController
+{
+    public function showForm(): Template
+    {
         return new Template('login.twig');
     }
 
-    public function execute() {
+    public function execute()
+    {
         $loginService = new LoginService();
         $user = $loginService->execute(
             new LoginServiceRequest(
@@ -21,7 +23,7 @@ class LoginController {
                 $_POST['password'],
             )
         );
-        if($user === false){
+        if ($user === false) {
             return new Template('login.twig', ['credentials' => false]);
         }
         $_SESSION['user'] = $user['id'];

@@ -9,12 +9,13 @@ use App\Template;
 
 class RegisterController
 {
-
-    public function showForm(): Template {
+    public function showForm(): Template
+    {
         return new Template('register.twig');
     }
 
-    public function store() {
+    public function store()
+    {
         $registerService = new RegisterService();
         $emailTakenCheck = $registerService->checkIfEmailTaken($_POST['email']);
         if ($emailTakenCheck !== false) {

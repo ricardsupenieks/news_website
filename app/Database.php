@@ -4,8 +4,10 @@ namespace App;
 
 use Doctrine\DBAL\Connection;
 
-class Database {
-    public function connect(): Connection {
+class Database
+{
+    public function connect(): Connection
+    {
         $connectionParams = [
             'dbname' => 'news-api',
             'user' => 'root',

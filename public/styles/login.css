@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Arial, monospace;
 }
 
@@ -7,7 +7,7 @@ body{
     margin-left: 300px;
 }
 
-#name{
+#name {
     margin-top: 5px;
     margin-bottom: 5px;
     height: 60px;
@@ -19,7 +19,7 @@ body{
     color: orange;
 }
 
-#email{
+#email {
     margin-bottom: 5px;
     height: 60px;
     width: 500px;
@@ -31,7 +31,7 @@ body{
 
 }
 
-#password{
+#password {
     margin-bottom: 5px;
     height: 60px;
     width: 500px;
@@ -41,7 +41,7 @@ body{
     background-color: rgba(44, 44, 44, 0)
 }
 
-#password_repeat{
+#password_repeat {
     height: 60px;
     width: 500px;
     border-top: 0;

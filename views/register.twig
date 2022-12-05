@@ -14,27 +14,27 @@
     </script>
 </head>
 <body>
-    {% include 'navigation.twig' %}
-    <h1>Register</h1>
-    <div class="login_info">
-        <form action="/register" method="post">
-            <input type="text" name="name" id="name" placeholder="Name" required>
+{% include 'navigation.twig' %}
+<h1>Register</h1>
+<div class="login_info">
+    <form action="/register" method="post">
+        <input type="text" name="name" id="name" placeholder="Name" required>
 
-            <input type="email" name="email" id="email" placeholder="E-mail" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" required>
 
-            <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
 
-            <input type="password" name="password_repeat" id="password_repeat" placeholder="Repeat password" required>
+        <input type="password" name="password_repeat" id="password_repeat" placeholder="Repeat password" required>
 
-            <input type="submit" id="submit" value="Submit">
-        </form>
+        <input type="submit" id="submit" value="Submit">
+    </form>
 
-        <div class="incorrect">
-            {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
-            {% if emailTaken is same as('email taken') %} E-mail taken {% endif %}
-        </div>
-
+    <div class="incorrect">
+        {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
+        {% if emailTaken is same as('email taken') %} E-mail taken {% endif %}
     </div>
+
+</div>
 
 </body>
 </html>

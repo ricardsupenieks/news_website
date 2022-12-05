@@ -6,9 +6,10 @@ use App\Models\Article;
 use App\Models\Collections\ArticlesCollection;
 use jcobhams\NewsApi\NewsApi;
 
-class FetchArticlesService {
-
-    public function execute(string $searchTerm): ArticlesCollection {
+class FetchArticlesService
+{
+    public function execute(string $searchTerm): ArticlesCollection
+    {
         $apiClient = new NewsApi($_ENV['NEWS_API_KEY']);
 
         $articlesApiResponse = $apiClient->getEverything($searchTerm);

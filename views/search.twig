@@ -9,15 +9,17 @@
     <title>Search</title>
 </head>
 <body>
-    {% include 'navigation.twig' %}
-        <h1>Top stories for: "{{ searchTerm }}"</h1>
-        <div class="flex-container">
-            {% for article in articles %}
-                <a href="{{ article.url }}" target="_blank"><div class="article">
-                        <img class="image" src="{{ article.imageUrl }}" alt="{{ keyword }}">
-                        <div class="article_title"><b>{{ article.title }}</b></div>
-                    </div></a>
-            {% endfor %}
-        </div>
+{% include 'navigation.twig' %}
+<h1>Top stories for: "{{ searchTerm }}"</h1>
+<div class="flex-container">
+    {% for article in articles %}
+        <a href="{{ article.url }}" target="_blank">
+            <div class="article">
+                <img class="image" src="{{ article.imageUrl }}" alt="{{ keyword }}">
+                <div class="article_title"><b>{{ article.title }}</b></div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
 </body>
 </html>

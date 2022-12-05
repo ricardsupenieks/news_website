@@ -6,9 +6,10 @@ use App\Models\Article;
 use App\Models\Collections\ArticlesCollection;
 use jcobhams\NewsApi\NewsApi;
 
-class FetchTopHeadlinesService {
-
-    public function execute(): ArticlesCollection {
+class FetchTopHeadlinesService
+{
+    public function execute(): ArticlesCollection
+    {
         $apiClient = new NewsApi($_ENV['NEWS_API_KEY']);
 
         $articlesApiResponse = $apiClient->getTopHeadLines(null, null, 'lv');

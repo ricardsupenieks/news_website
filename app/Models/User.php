@@ -4,10 +4,12 @@ namespace App\Models;
 
 use App\Database;
 
-class User {
+class User
+{
     private string $name;
 
-    public function __construct(int $id) {
+    public function __construct(int $id)
+    {
         $db = new Database();
         $dbConnection = $db->connect();
 
@@ -15,7 +17,8 @@ class User {
         $this->email = $dbConnection->fetchOne('SELECT email FROM `news-api`.users WHERE id = ?', [$id]);
     }
 
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 }

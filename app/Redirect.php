@@ -2,8 +2,8 @@
 
 namespace App;
 
-class Redirect {
-
+class Redirect
+{
     private string $url;
 
     public function __construct(string $url)

@@ -6,10 +6,10 @@ use App\Services\Article\FetchArticlesService;
 use App\Services\Article\FetchTopHeadlinesService;
 use App\Template;
 
-class ArticleController  {
-
-    public function index(): Template {
-
+class ArticleController
+{
+    public function index(): Template
+    {
         $searchTerm = $_GET['search'];
 
         if ($searchTerm === null) {

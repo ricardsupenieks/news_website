@@ -18,7 +18,7 @@ $dotenv->load();
 
 session_start();
 
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+$dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', [ArticleController::class, 'index']);
 
     $r->addRoute('GET', '/register', [RegisterController::class, 'showForm']);
@@ -70,7 +70,7 @@ switch ($routeInfo[0]) {
             $twig->addGlobal('user', $user->getName());
         }
 
-        if ($response instanceof Template){
+        if ($response instanceof Template) {
             echo $twig->render($response->getPath(), $response->getParams());
         }
 

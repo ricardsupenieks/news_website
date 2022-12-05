@@ -9,8 +9,8 @@ class Article
     private ?string $imageUrl;
 
 
-    public function __construct(string $url, ?string $title = null, ?string $imageUrl = null){
-
+    public function __construct(string $url, ?string $title = null, ?string $imageUrl = null)
+    {
         $this->url = $url;
         $this->title = $title;
         $this->imageUrl = $imageUrl;

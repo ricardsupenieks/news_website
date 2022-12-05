@@ -6,7 +6,8 @@ use App\Redirect;
 
 class LogoutController
 {
-    public function logOut(): Redirect {
+    public function logOut(): Redirect
+    {
         session_unset();
         return new Redirect("/");
     }

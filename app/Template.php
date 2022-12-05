@@ -2,7 +2,8 @@
 
 namespace App;
 
-class Template {
+class Template
+{
     private string $path;
     private array $params;
 

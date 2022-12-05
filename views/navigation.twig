@@ -9,17 +9,17 @@
     <title></title>
 </head>
 <body>
-    <div class="navigation">
-        <a href="/"><h2 class="news">NEWS</h2></a>
-        <form method="get" class="search_box">
-            <input type="text" name="search" id="search" placeholder="Search" required>
-        </form>
-        {% if userID is same as (null) %}
-            <div class="login/register"><a href="/register">Register</a> | <a href="/login">Login</a></div>
-        {% else %}
-            <div class="user"> Hello, {{ user }} </div>
-            <div class="logout"><a href="/logout">Log out</a></div>
-        {% endif %}
-    </div>
+<div class="navigation">
+    <a href="/"><h2 class="news">NEWS</h2></a>
+    <form method="get" class="search_box">
+        <input type="text" name="search" id="search" placeholder="Search" required>
+    </form>
+    {% if userID is same as (null) %}
+        <div class="login/register"><a href="/register">Register</a> | <a href="/login">Login</a></div>
+    {% else %}
+        <div class="user"> Hello, {{ user }} </div>
+        <div class="logout"><a href="/logout">Log out</a></div>
+    {% endif %}
+</div>
 </body>
 </html>
