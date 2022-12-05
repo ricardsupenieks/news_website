@@ -65,3 +65,8 @@ h1 {
     margin-top: 0;
     padding: 5px 5px 5px 20px;
 }
+
+.incorrect {
+    color: orange;
+    margin-top: 10px;
+}

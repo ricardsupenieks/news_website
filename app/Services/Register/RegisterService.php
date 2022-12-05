@@ -13,15 +13,15 @@ class RegisterService {
         $this->connection = $db->connect();
     }
 
-    public function checkEmail($email) {
+    public function checkIfEmailTaken($email): bool {
         $emailInDB = $this->connection->fetchAllKeyValue('SELECT id, email FROM `news-api`.users');
         if (in_array($email, $emailInDB)) {
-            return 'email taken';
+            return true;
         }
-        return null;
+        return false;
     }
 
-    public function execute(RegisterServiceRequest $request) {
+    public function execute(RegisterServiceRequest $request): void {
         $this->connection->insert('users', [
             'name' => $request->getName(),
             'email' => $request->getEmail(),

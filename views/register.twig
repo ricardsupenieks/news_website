@@ -28,11 +28,13 @@
 
             <input type="submit" id="submit" value="Submit">
         </form>
+
+        <div class="incorrect">
+            {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
+            {% if emailTaken is same as('email taken') %} E-mail taken {% endif %}
+        </div>
+
     </div>
 
-    <div class="error">
-        {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
-        {% if emailTaken is same as('email taken') %} E-mail taken {% endif %}
-    </div>
 </body>
 </html>
