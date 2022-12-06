@@ -31,7 +31,7 @@
 
     <div class="incorrect">
         {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
-        {% if emailTaken is same as('email taken') %} E-mail taken {% endif %}
+        {% if emailTaken is same as(true) %} E-mail taken {% endif %}
     </div>
 
 </div>

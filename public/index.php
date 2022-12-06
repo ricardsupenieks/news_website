@@ -6,7 +6,6 @@ use App\Controllers\ArticleController;
 use App\Controllers\LoginController;
 use App\Controllers\LogoutController;
 use App\Controllers\RegisterController;
-use App\Models\User;
 use App\Redirect;
 use App\Template;
 use Dotenv\Dotenv;
@@ -33,6 +32,15 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
 
 $loader = new FilesystemLoader('../views');
 $twig = new Environment($loader);
+
+$authVariables = [
+    \App\ViewVariables\ViewUserVariables::class
+];
+
+foreach ($authVariables as $variable) {
+    $variable = new $variable;
+    $twig->addGlobal($variable->getName(), $variable->getValue());
+}
 
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
@@ -61,14 +69,6 @@ switch ($routeInfo[0]) {
         [$controller, $method] = $handler;
         $response = (new $controller)->{$method}($vars);
 
-        $userID = $_SESSION['user'];
-        $twig->addGlobal('userID', $userID);
-
-        if ($userID !== null) {
-            $user = new User($userID);
-
-            $twig->addGlobal('user', $user->getName());
-        }
 
         if ($response instanceof Template) {
             echo $twig->render($response->getPath(), $response->getParams());

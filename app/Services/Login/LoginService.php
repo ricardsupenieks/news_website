@@ -11,8 +11,7 @@ class LoginService
 
     public function __construct()
     {
-        $db = new Database();
-        $this->connection = $db->connect();
+        $this->connection = Database::getConnection();
     }
 
     public function execute(LoginServiceRequest $request)
@@ -31,6 +30,6 @@ class LoginService
         if (password_verify($request->getPassword(), $hash[0]["password"])) {
             return $id;
         }
-        return false;
+        return null;
     }
 }

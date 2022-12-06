@@ -23,7 +23,7 @@ class LoginController
                 $_POST['password'],
             )
         );
-        if ($user === false) {
+        if ($user === null) {
             return new Template('login.twig', ['credentials' => false]);
         }
         $_SESSION['user'] = $user['id'];

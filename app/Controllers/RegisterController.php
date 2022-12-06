@@ -17,6 +17,7 @@ class RegisterController
     public function store()
     {
         $registerService = new RegisterService();
+
         $emailTakenCheck = $registerService->checkIfEmailTaken($_POST['email']);
         if ($emailTakenCheck !== false) {
             return new Template('register.twig', ['emailTaken' => $emailTakenCheck]);

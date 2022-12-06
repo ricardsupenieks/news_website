@@ -51,6 +51,12 @@ input {
     margin-right: 20px;
 }
 
+.profile {
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
 ::placeholder {
     font-style: italic;
     color: white;
