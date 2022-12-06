@@ -14,7 +14,7 @@ class LoginController
         return new Template('login.twig');
     }
 
-    public function execute()
+    public function execute(): Redirect
     {
         $loginService = new LoginService();
         $user = $loginService->execute(
@@ -24,9 +24,15 @@ class LoginController
             )
         );
         if ($user === null) {
-            return new Template('login.twig', ['credentials' => false]);
+            $_SESSION['errors']['userCredentials'] = false;
         }
+
+        if (! empty($_SESSION['errors'])) {
+            return new Redirect('/login');
+        }
+
         $_SESSION['user'] = $user['id'];
         return new Redirect('/');
     }
 }
+

@@ -14,17 +14,23 @@ class RegisterController
         return new Template('register.twig');
     }
 
-    public function store()
+    public function store(): Redirect
     {
+        $registerSuccess = false;
+
         $registerService = new RegisterService();
 
         $emailTakenCheck = $registerService->checkIfEmailTaken($_POST['email']);
-        if ($emailTakenCheck !== false) {
-            return new Template('register.twig', ['emailTaken' => $emailTakenCheck]);
+        if ($emailTakenCheck === true) {
+            $_SESSION['errors']['emailTaken'] = true;
         }
 
         if ($_POST['password'] != $_POST['password_repeat']) {
-            return new Template('register.twig', ['passwordsMatch' => false]);
+            $_SESSION['errors']['passwordsMatch'] = false;
+        }
+
+        if (! empty($_SESSION['errors'])) {
+            return new Redirect('/register');
         }
 
         $registerService->execute(

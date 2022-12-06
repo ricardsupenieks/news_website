@@ -7,12 +7,12 @@ use App\Database;
 class ViewUserVariables
 {
     public function getName(): string {
-        return 'user';
+        return 'user'; // saprotu to ka itka nevajadzetu nosaukt par user jo tad var but tikai viens user, bet sajai majaslapai der
     }
 
     public function getValue(): array {
 
-        if (! isset($_SESSION['user'])) { // saprotu to ka itka nevajadzetu user jo tad var but tikai viens user, bet sajai majaslapai der
+        if (! isset($_SESSION['user'])) {
             return [];
         }
 

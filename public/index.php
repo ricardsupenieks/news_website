@@ -34,7 +34,8 @@ $loader = new FilesystemLoader('../views');
 $twig = new Environment($loader);
 
 $authVariables = [
-    \App\ViewVariables\ViewUserVariables::class
+    \App\ViewVariables\ViewUserVariables::class,
+    \App\ViewVariables\ViewErrorVariables::class,
 ];
 
 foreach ($authVariables as $variable) {
@@ -72,6 +73,8 @@ switch ($routeInfo[0]) {
 
         if ($response instanceof Template) {
             echo $twig->render($response->getPath(), $response->getParams());
+
+            unset($_SESSION['errors']);
         }
 
         if ($response instanceof Redirect) {
@@ -80,3 +83,4 @@ switch ($routeInfo[0]) {
 
         break;
 }
+

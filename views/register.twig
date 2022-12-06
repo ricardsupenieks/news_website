@@ -30,8 +30,9 @@
     </form>
 
     <div class="incorrect">
-        {% if passwordsMatch is same as(false) %} Passwords don't match {% endif %}
-        {% if emailTaken is same as(true) %} E-mail taken {% endif %}
+        {% if errors.passwordsMatch is same as(false) %} Passwords don't match {% endif %}
+        <br>
+        {% if errors.emailTaken is same as(true) %} E-mail taken {% endif %}
     </div>
 
 </div>
