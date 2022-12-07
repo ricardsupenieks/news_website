@@ -26,6 +26,11 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
     $r->addRoute('GET', '/login', [LoginController::class, 'showForm']);
     $r->addRoute('POST', '/login', [LoginController::class, 'execute']);
 
+    $r->addRoute('GET', '/profile', [\App\Controllers\ProfileController::class, 'showProfile']);
+    $r->addRoute('GET', '/profile_change', [\App\Controllers\ProfileController::class, 'changePasswordForm']);
+    $r->addRoute('POST', '/profile_change', [\App\Controllers\ProfileController::class, 'changePassword']);
+
+
     $r->addRoute('GET', '/logout', [LogoutController::class, 'logOut']);
 
 });
@@ -33,12 +38,13 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
 $loader = new FilesystemLoader('../views');
 $twig = new Environment($loader);
 
-$authVariables = [
+$viewVariables = [
     \App\ViewVariables\ViewUserVariables::class,
     \App\ViewVariables\ViewErrorVariables::class,
 ];
 
-foreach ($authVariables as $variable) {
+foreach ($viewVariables as $variable) {
+    /** @var \App\ViewVariables\ViewVariables $variable */
     $variable = new $variable;
     $twig->addGlobal($variable->getName(), $variable->getValue());
 }

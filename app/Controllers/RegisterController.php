@@ -16,7 +16,6 @@ class RegisterController
 
     public function store(): Redirect
     {
-        $registerSuccess = false;
 
         $registerService = new RegisterService();
 

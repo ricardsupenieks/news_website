@@ -1,0 +1,23 @@
+.selection {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    box-sizing: border-box;
+    justify-content: stretch;
+    max-width: 900px;
+}
+
+.categories {
+    list-style-type: none;
+
+}
+
+.edit {
+    color: orange;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.incorrect {
+    color: orange;
+}
